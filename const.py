@@ -174,7 +174,7 @@ REG_ADDR = {
     "EQUALIZING_CHARGE_TIME": 149,  # app addr 298; raw minutes
 }
 REG_ADDR_CELL_START: Final = 250
-REG_ADDR_CELL_COUNT: Final = 50
+REG_ADDR_CELL_COUNT: Final = 16
 
 # --- Entity Keys --- (Removed unavailable mode keys)
 KEY_ONLINE_STATUS: Final = "online_status"
