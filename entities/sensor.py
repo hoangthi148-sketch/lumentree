@@ -571,6 +571,23 @@ REALTIME_SENSOR_DESCRIPTIONS: tuple[SensorEntityDescription, ...] = (
     ),
 )
 
+# Only the real-time sensors the Lumentree dashboard actually uses are created.
+_KEEP_REALTIME_KEYS = frozenset(
+    {
+        KEY_PV_POWER, KEY_PV1_POWER, KEY_PV2_POWER,
+        KEY_PV1_VOLTAGE, KEY_PV2_VOLTAGE,
+        KEY_GRID_POWER, KEY_GRID_VOLTAGE,
+        KEY_LOAD_POWER, KEY_TOTAL_LOAD_POWER,
+        KEY_AC_OUT_POWER, KEY_AC_OUT_VOLTAGE, KEY_AC_OUT_FREQ, KEY_AC_IN_FREQ,
+        KEY_BATTERY_POWER, KEY_BATTERY_VOLTAGE, KEY_BATTERY_CURRENT, KEY_BATTERY_SOC,
+        KEY_DEVICE_TEMP, KEY_BATTERY_CELL_INFO,
+        KEY_TODAY_PV_KWH,
+    }
+)
+REALTIME_SENSOR_DESCRIPTIONS = tuple(
+    d for d in REALTIME_SENSOR_DESCRIPTIONS if d.key in _KEEP_REALTIME_KEYS
+)
+
 # Sensor Descriptions (HTTP Daily Stats)
 STATS_SENSOR_DESCRIPTIONS: tuple[SensorEntityDescription, ...] = (
     SensorEntityDescription(
