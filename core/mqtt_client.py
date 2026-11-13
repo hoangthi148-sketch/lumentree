@@ -39,7 +39,7 @@ RECONNECT_DELAY_SECONDS = 5
 MAX_RECONNECT_ATTEMPTS = 10
 CONNECT_TIMEOUT = 20
 OFFLINE_TIMEOUT_SECONDS = DEFAULT_POLLING_INTERVAL * 2.5
-NUM_MAIN_REGISTERS_TO_READ = 151  # Read registers 0-150 (extended for work/battery mode)
+NUM_MAIN_REGISTERS_TO_READ = 75  # Read registers 0-74 only (PV2 power is the highest register used)
 BATCH_DELAY_SECONDS = 0.1  # Coalesce frames arriving together into one dispatch
 
 # paho-mqtt 2.x deprecates the 1.x callback signatures and 3.0 removes them;
@@ -633,7 +633,7 @@ class LumentreeMqttClient:
             return False
 
     async def async_request_data(self) -> None:
-        """Request the main device data (registers 0-150)."""
+        """Request the main device data (registers 0-74)."""
         start_address = 0
         num_registers = NUM_MAIN_REGISTERS_TO_READ
         slave_id = 1
