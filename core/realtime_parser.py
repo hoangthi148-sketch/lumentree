@@ -504,6 +504,7 @@ def parse_mqtt_payload(ph: str) -> dict[str, Any] | None:
         expected_cell_bytes = REG_ADDR_CELL_COUNT * 2
         expected_main_bytes = 151 * 2  # 151 registers (0-150), 302 bytes
         expected_main_bytes_legacy = 95 * 2  # Legacy 95-register format
+        expected_main_bytes_fast = 75 * 2  # Fast frame: registers 0-74 (what we request now)
         expected_main_bytes_extended = expected_main_bytes_legacy + 12  # Legacy + metadata
 
         # Determine data type.  Dispatch on the real byte length, never on the
@@ -512,6 +513,9 @@ def parse_mqtt_payload(ph: str) -> dict[str, Any] | None:
         if main_len == expected_cell_bytes:
             is_cell_data = True
             _LOGGER.debug("Cell data detected")
+        elif main_len == expected_main_bytes_fast:
+            is_cell_data = False
+            _LOGGER.debug("Main data (75 regs, fast frame)")
         elif main_len == expected_main_bytes:
             is_cell_data = False
             _LOGGER.debug("Main data (151 regs)")
