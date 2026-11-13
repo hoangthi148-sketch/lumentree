@@ -194,7 +194,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
             try:
                 await mqtt_client.async_request_data()
                 poll_count += 1
-                if poll_count % 6 == 0:
+                if poll_count % 12 == 0:
                     await mqtt_client.async_request_battery_cells()
             except Exception as poll_err:
                 _LOGGER.error("MQTT poll error %s: %s", device_sn, poll_err)
