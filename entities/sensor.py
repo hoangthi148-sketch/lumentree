@@ -331,7 +331,7 @@ REALTIME_SENSOR_DESCRIPTIONS: tuple[SensorEntityDescription, ...] = (
         name="Device SN (MQTT)",
         icon="mdi:barcode-scan",
         entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=True,
+        entity_registry_enabled_default=False,
     ),
     SensorEntityDescription(
         key=KEY_BATTERY_CELL_INFO,
