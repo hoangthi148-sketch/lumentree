@@ -193,7 +193,7 @@ REALTIME_SENSOR_DESCRIPTIONS: tuple[SensorEntityDescription, ...] = (
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
-        entity_registry_enabled_default=False,
+        entity_registry_enabled_default=True,
     ),
     SensorEntityDescription(
         key=KEY_PV2_POWER,
@@ -201,7 +201,7 @@ REALTIME_SENSOR_DESCRIPTIONS: tuple[SensorEntityDescription, ...] = (
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
-        entity_registry_enabled_default=False,
+        entity_registry_enabled_default=True,
     ),
     SensorEntityDescription(
         key=KEY_AC_OUT_VA,
@@ -242,7 +242,7 @@ REALTIME_SENSOR_DESCRIPTIONS: tuple[SensorEntityDescription, ...] = (
         device_class=SensorDeviceClass.VOLTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=1,
-        entity_registry_enabled_default=False,
+        entity_registry_enabled_default=True,
     ),
     SensorEntityDescription(
         key=KEY_PV1_VOLTAGE,
@@ -250,7 +250,7 @@ REALTIME_SENSOR_DESCRIPTIONS: tuple[SensorEntityDescription, ...] = (
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         device_class=SensorDeviceClass.VOLTAGE,
         state_class=SensorStateClass.MEASUREMENT,
-        entity_registry_enabled_default=False,
+        entity_registry_enabled_default=True,
     ),
     SensorEntityDescription(
         key=KEY_PV2_VOLTAGE,
@@ -258,7 +258,7 @@ REALTIME_SENSOR_DESCRIPTIONS: tuple[SensorEntityDescription, ...] = (
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         device_class=SensorDeviceClass.VOLTAGE,
         state_class=SensorStateClass.MEASUREMENT,
-        entity_registry_enabled_default=False,
+        entity_registry_enabled_default=True,
     ),
     SensorEntityDescription(
         key=KEY_BATTERY_CURRENT,
@@ -331,7 +331,7 @@ REALTIME_SENSOR_DESCRIPTIONS: tuple[SensorEntityDescription, ...] = (
         name="Device SN (MQTT)",
         icon="mdi:barcode-scan",
         entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
+        entity_registry_enabled_default=True,
     ),
     SensorEntityDescription(
         key=KEY_BATTERY_CELL_INFO,
